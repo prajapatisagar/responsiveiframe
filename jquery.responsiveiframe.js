@@ -130,8 +130,8 @@ if (typeof jQuery !== 'undefined') {
     };
     
  	ResponsiveIframe.prototype.alertnote = function(scrollTop) {
-        $('iframe', window.parent.document).css( "width", "100%" );
-        $('iframe', window.parent.document).css( "max-width", "790px" );
+        //$('iframe', window.parent.document).css( "width", "100%" );
+        //$('iframe', window.parent.document).css( "max-width", "790px" );
         $('#moneygeek-finance-container', window.parent.document).css( "width", "100%" );
         $('#moneygeek-finance-container', window.parent.document).css( "max-width", "790px" );
     };
