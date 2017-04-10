@@ -130,11 +130,31 @@ if (typeof jQuery !== 'undefined') {
     };
     
  	ResponsiveIframe.prototype.alertnote = function(scrollTop) {
-        $('iframe', window.parent.document).css( "width", "100%" );
+        /*$('iframe', window.parent.document).css( "width", "100%" );
         $('iframe', window.parent.document).css( "max-width", "790px" );
         $('#moneygeek-finance-container', window.parent.document).css( "width", "100%" );
-        $('#moneygeek-finance-container', window.parent.document).css( "max-width", "790px" );
+        $('#moneygeek-finance-container', window.parent.document).css( "max-width", "790px" );*/
+        window.parent.postMessage({message: 'z'}, '*');
     };
+    
+    window.addEventListener('message', function(event) {
+		if(event.data.message == 'z') {
+			document.getElementById("myIframeID").style.width = "100%";
+			document.getElementById("myIframeID").style.maxWidth = "800px";
+			document.getElementById("moneygeek-finance-container").style.width = "100%";
+			document.getElementById("moneygeek-finance-container").style.maxWidth = "800px";
+		}
+    	/*alert('Received message: ' + event.data.message);
+      if(event.origin === '*')
+      {
+        alert('Received message: ' + event.data.message);
+      }
+      else
+      {
+        //alert('Origin not allowed!');
+      }*/
+
+    }, false);
 
     function responsiveIframe() {
         return new ResponsiveIframe();
